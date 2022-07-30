@@ -1,0 +1,46 @@
+/*
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/CascadeStyleSheet.css to edit this template
+*/
+/* 
+    Created on : 30/07/2022, 09:12:10 AM
+    Author     : Chacón Berreondo
+*/
+
+            h1{
+                color: black;
+                font-family: fantasy;
+                
+            }
+            h3{
+                font-family: sans-serif;
+                color: midnightblue;
+            }
+            
+            body{
+                font-family: Courier; 
+                color: black;
+                font-size: 20px;
+                font-style: italic;
+                background-color: darkgoldenrod;
+            
+            }
+            #head{
+                width: 70%;
+                margin: 0px auto;
+                border: 1px solid gray;
+                background-color: beige;
+                
+            }
+            #formulario{
+                width: 70%;
+                margin: 0px auto;
+                border: 1px solid gray;
+                background-color: beige;
+            }
+            label{
+                color: coral;
+                font-weight: bolder;
+            }
+            
+            
