@@ -93,14 +93,5 @@ public class ClienteModell {
 
     public void setCiudad(String ciudad) {
         this.ciudad = ciudad;
-    }
-
-    public void setCodigo(String codigo) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }
-
-    public void setTelefono(String telef) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }
-    
+    }    
 }

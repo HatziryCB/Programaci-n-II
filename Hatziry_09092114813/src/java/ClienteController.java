@@ -37,8 +37,8 @@ public class ClienteController extends HttpServlet {
             cliente = new ClienteModell();
             cliente.setNombre(request.getParameter("nombre"));
             cliente.setApellido(request.getParameter("apellido"));
-            cliente.setCodigo(request.getParameter("codigo"));
-            cliente.setTelefono(request.getParameter("telefono"));
+            cliente.setCodigo(Integer.parseInt(request.getParameter("codigo")));
+            cliente.setTelefono(Integer.parseInt(request.getParameter("telefono")));
             cliente.setCorreo(request.getParameter("email"));
             cliente.setDirección(request.getParameter("direccion"));
             cliente.setMunicipio(request.getParameter("municipio"));
@@ -76,7 +76,7 @@ public class ClienteController extends HttpServlet {
                     + "            </div>\n"
                     + "        </nav>");
             out.print("<div class=\"mx-auto\" style=\"width: 600px;\">\n"
-                    + "<br><br><br><h1 class='display-4'>Datos de Usuario</h1>"
+                    + "<br><br><br><h1 class=\"display-4\">Datos de Usuario</h1>"
                     + "<br><br>"
                     + "<dl class=\"row\">\n"
                     + "  <dt class=\"col-sm-3\">Nombre </dt>\n"
