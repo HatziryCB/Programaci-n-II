@@ -34,14 +34,15 @@ public class ClienteController extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         try ( PrintWriter out = response.getWriter()) {
-            String nombre = request.getParameter("nombre");
-            String apell = request.getParameter("apellido");
-            String codigo = request.getParameter("codigo");
-            String telef = request.getParameter("telefono");
-            String email = request.getParameter("email");
-            String direc = request.getParameter("direccion");
-            String muni = request.getParameter("municipio");
-            String ciudad = request.getParameter("ciudad");
+            cliente = new ClienteModell();
+            cliente.setNombre(request.getParameter("nombre"));
+            cliente.setApellido(request.getParameter("apellido"));
+            cliente.setCodigo(request.getParameter("codigo"));
+            cliente.setTelefono(request.getParameter("telefono"));
+            cliente.setCorreo(request.getParameter("email"));
+            cliente.setDirección(request.getParameter("direccion"));
+            cliente.setMunicipio(request.getParameter("municipio"));
+            cliente.setCiudad(request.getParameter("ciudad"));
 
             out.println("<!DOCTYPE html>");
             out.println("<html>");
@@ -61,11 +62,11 @@ public class ClienteController extends HttpServlet {
                     + "                <li class=\"nav-item active\">\n"
                     + "                  <a class=\"nav-link\" href=\"index.html\">Registrarse <span class=\"sr-only\">(current)</span></a>\n"
                     + "                </li>\n"
-                    + "                <li class=\"nav-item\">\n"
+                    + "                <li class=\"nav-item active\">\n"
                     + "                  <a class=\"nav-link\" href=\"https://store.acer.com/en-us/?internal_source=us.acer.com&internal_medium=referral&internal_campaign=Ongoing&internal_content=Nav\">Tienda</a>\n"
                     + "                </li>\n"
-                    + "                <li class=\"nav-item\">\n"
-                    + "                  <a class=\"nav-link disabled\">Acerca de nosotros</a>\n"
+                    + "                <li class=\"nav-item active\">\n"
+                    + "                  <a class=\"nav-link\" href=\"https://www.acer.com/ac/en/US/content/service-contact\">Contacto</a>\n"
                     + "                </li>\n"
                     + "              </ul>\n"
                     + "              <form class=\"form-inline my-2 my-lg-0\">\n"
@@ -79,23 +80,23 @@ public class ClienteController extends HttpServlet {
                     + "<br><br>"
                     + "<dl class=\"row\">\n"
                     + "  <dt class=\"col-sm-3\">Nombre </dt>\n"
-                    + "  <dd class=\"col-sm-9\">" + nombre + " " + apell + "</dd>\n"
+                    + "  <dd class=\"col-sm-9\">" + cliente.getNombre() + " " + cliente.getApellido() + "</dd>\n"
                     + "\n"
                     + "  <dt class=\"col-sm-3\">Código</dt>\n"
                     + "  <dd class=\"col-sm-9\">\n"
-                    + "    <p>" + codigo + "</p>\n"
+                    + "    <p>" + cliente.getCodigo() + "</p>\n"
                     + "  </dd>\n"
                     + "\n"
                     + "  <dt class=\"col-sm-3\">Teléfono</dt>\n"
-                    + "  <dd class=\"col-sm-9\">" + telef + "</dd>\n"
+                    + "  <dd class=\"col-sm-9\">" + cliente.getTelefono() + "</dd>\n"
                     + "\n"
                     + "  <dt class=\"col-sm-3 text-truncate\">Correo</dt>\n"
-                    + "  <dd class=\"col-sm-9\">" + email + "</dd>\n"
+                    + "  <dd class=\"col-sm-9\">" + cliente.getCorreo() + "</dd>\n"
                     + "\n"
                     + "<dt class=\"col-sm-3\">Domicilio</dt>\n"
-                    + "  <dd class=\"col-sm-9\">" + direc + "</dd>\n"
+                    + "  <dd class=\"col-sm-9\">" + cliente.getDirección() + "</dd>\n"
                     + "<dt class=\"col-sm-3\">Locación</dt>\n"
-                    + "  <dd class=\"col-sm-9\">" + muni + " , " + ciudad + "</dd>\n"
+                    + "  <dd class=\"col-sm-9\">" + cliente.getMunicipio() + " , " + cliente.getCiudad() + "</dd>\n"
                     + "</dl>"
                     + "<a class=\"btn btn-primary\" href=\"index.html\" role=\"button\">Registrar otro cliente</a>"
                     + "</div>");
