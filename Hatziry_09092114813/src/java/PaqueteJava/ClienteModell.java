@@ -15,7 +15,7 @@ public class ClienteModell {
     private int telefono;
     private String correo;
     private String pass;
-    private String dirección;
+    private String direccion;
     private String municipio;
     private String ciudad;
     
@@ -72,11 +72,11 @@ public class ClienteModell {
     }
 
     public String getDirección() {
-        return dirección;
+        return direccion;
     }
 
     public void setDirección(String dirección) {
-        this.dirección = dirección;
+        this.direccion = dirección;
     }
 
     public String getMunicipio() {

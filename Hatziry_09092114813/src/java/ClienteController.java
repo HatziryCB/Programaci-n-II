@@ -34,6 +34,14 @@ public class ClienteController extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         try ( PrintWriter out = response.getWriter()) {
+            String nombre = request.getParameter("nombre");
+            String apell = request.getParameter("apellido");
+            String codigo = request.getParameter("codigo");
+            String telef = request.getParameter("telefono");
+            String email = request.getParameter("email");
+            String direc = request.getParameter("direccion");
+            String muni = request.getParameter("municipio");
+            String ciudad = request.getParameter("ciudad");
 
             out.println("<!DOCTYPE html>");
             out.println("<html>");
@@ -43,7 +51,7 @@ public class ClienteController extends HttpServlet {
             out.println("</head>");
             out.println("<body>");
             out.println("<nav class=\"navbar navbar-expand-lg navbar-dark bg-dark\">\n"
-                    + "            <a class=\"navbar-brand\" href=\"#\">UMG</a>\n"
+                    + "            <a class=\"navbar-brand\" href=\"https://www.acer.com/ac/en/US/content/home\">ACER</a>\n"
                     + "            <button class=\"navbar-toggler\" type=\"button\" data-toggle=\"collapse\" data-target=\"#navbarTogglerDemo02\" aria-controls=\"navbarTogglerDemo02\" aria-expanded=\"false\" aria-label=\"Toggle navigation\">\n"
                     + "              <span class=\"navbar-toggler-icon\"></span>\n"
                     + "            </button>\n"
@@ -51,10 +59,10 @@ public class ClienteController extends HttpServlet {
                     + "            <div class=\"collapse navbar-collapse\" id=\"navbarTogglerDemo02\">\n"
                     + "              <ul class=\"navbar-nav mr-auto mt-2 mt-lg-0\">\n"
                     + "                <li class=\"nav-item active\">\n"
-                    + "                  <a class=\"nav-link\" href=\"#\">Registrarse <span class=\"sr-only\">(current)</span></a>\n"
+                    + "                  <a class=\"nav-link\" href=\"index.html\">Registrarse <span class=\"sr-only\">(current)</span></a>\n"
                     + "                </li>\n"
                     + "                <li class=\"nav-item\">\n"
-                    + "                  <a class=\"nav-link\" href=\"#\">Tienda</a>\n"
+                    + "                  <a class=\"nav-link\" href=\"https://store.acer.com/en-us/?internal_source=us.acer.com&internal_medium=referral&internal_campaign=Ongoing&internal_content=Nav\">Tienda</a>\n"
                     + "                </li>\n"
                     + "                <li class=\"nav-item\">\n"
                     + "                  <a class=\"nav-link disabled\">Acerca de nosotros</a>\n"
@@ -67,32 +75,29 @@ public class ClienteController extends HttpServlet {
                     + "            </div>\n"
                     + "        </nav>");
             out.print("<div class=\"mx-auto\" style=\"width: 600px;\">\n"
-                    + "<h1 class='display-4'>Datos de Usuario</h1>"
+                    + "<br><br><br><h1 class='display-4'>Datos de Usuario</h1>"
                     + "<br><br>"
                     + "<dl class=\"row\">\n"
-                    + "  <dt class=\"col-sm-3\">Description lists</dt>\n"
-                    + "  <dd class=\"col-sm-9\">A description list is perfect for defining terms.</dd>\n"
+                    + "  <dt class=\"col-sm-3\">Nombre </dt>\n"
+                    + "  <dd class=\"col-sm-9\">" + nombre + " " + apell + "</dd>\n"
                     + "\n"
-                    + "  <dt class=\"col-sm-3\">Term</dt>\n"
+                    + "  <dt class=\"col-sm-3\">Código</dt>\n"
                     + "  <dd class=\"col-sm-9\">\n"
-                    + "    <p>Definition for the term.</p>\n"
-                    + "    <p>And some more placeholder definition text.</p>\n"
+                    + "    <p>" + codigo + "</p>\n"
                     + "  </dd>\n"
                     + "\n"
-                    + "  <dt class=\"col-sm-3\">Another term</dt>\n"
-                    + "  <dd class=\"col-sm-9\">This definition is short, so no extra paragraphs or anything.</dd>\n"
+                    + "  <dt class=\"col-sm-3\">Teléfono</dt>\n"
+                    + "  <dd class=\"col-sm-9\">" + telef + "</dd>\n"
                     + "\n"
-                    + "  <dt class=\"col-sm-3 text-truncate\">Truncated term is truncated</dt>\n"
-                    + "  <dd class=\"col-sm-9\">This can be useful when space is tight. Adds an ellipsis at the end.</dd>\n"
+                    + "  <dt class=\"col-sm-3 text-truncate\">Correo</dt>\n"
+                    + "  <dd class=\"col-sm-9\">" + email + "</dd>\n"
                     + "\n"
-                    + "  <dt class=\"col-sm-3\">Nesting</dt>\n"
-                    + "  <dd class=\"col-sm-9\">\n"
-                    + "    <dl class=\"row\">\n"
-                    + "      <dt class=\"col-sm-4\">Nested definition list</dt>\n"
-                    + "      <dd class=\"col-sm-8\">I heard you like definition lists. Let me put a definition list inside your definition list.</dd>\n"
-                    + "    </dl>\n"
-                    + "  </dd>\n"
+                    + "<dt class=\"col-sm-3\">Domicilio</dt>\n"
+                    + "  <dd class=\"col-sm-9\">" + direc + "</dd>\n"
+                    + "<dt class=\"col-sm-3\">Locación</dt>\n"
+                    + "  <dd class=\"col-sm-9\">" + muni + " , " + ciudad + "</dd>\n"
                     + "</dl>"
+                    + "<a class=\"btn btn-primary\" href=\"index.html\" role=\"button\">Registrar otro cliente</a>"
                     + "</div>");
             out.println("</body>");
             out.println("</html>");
