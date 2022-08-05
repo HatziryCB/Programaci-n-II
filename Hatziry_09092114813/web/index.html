@@ -21,71 +21,73 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Html.html to edit thi
             <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
               <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
                 <li class="nav-item active">
-                  <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+                  <a class="nav-link" href="#">Registrarse <span class="sr-only">(current)</span></a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="#">Shop</a>
+                  <a class="nav-link" href="#">Tienda</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link disabled">About us</a>
+                  <a class="nav-link disabled">Acerca de nosotros</a>
                 </li>
               </ul>
               <form class="form-inline my-2 my-lg-0">
                 <input class="form-control mr-sm-2" type="search" placeholder="Search">
-                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Buscar</button>
               </form>
             </div>
         </nav>
         <div class="mx-auto" style="width: 600px;">
-            <form>
+            <form action="ClienteController">
                 <h2 class="display-4">REGISTRO DE CLIENTE</h3>
+                <a href="ClienteController">Click</a>
                 <div class="row">
                     <div class="col">
                         <label for="Nombres">Nombres</label>
-                      <input type="text" class="form-control" placeholder="First name">
+                      <input type="text" class="form-control" placeholder="First name" name="nombre">
                     </div>
                     <div class="col">
                         <label for="Apellidos">Apellidos</label>
-                      <input type="text" class="form-control" placeholder="Last name">
+                      <input type="text" class="form-control" placeholder="Last name" name="apellido">
                     </div>
                 </div>
                 <br>
                 <div class="row">
                     <div class="col">
                         <label for="codigo">Código Personal</label>
-                      <input type="text" class="form-control" placeholder="Access code">
+                      <input type="text" class="form-control" placeholder="Access code" name="codigo">
                     </div>
                     <div class="col">
                         <label for="telefono">Teléfono</label>
-                      <input type="text" class="form-control" placeholder="Phone number">
+                      <input type="text" class="form-control" placeholder="Phone number" name="telefono">
                     </div>
                 </div>
                 <br>
                 <div class="form-row">
                   <div class="form-group col-md-6">
                     <label for="email">Correo electrónico</label>
-                    <input type="email" class="form-control" id="email">
+                    <input type="email" class="form-control" id="email" name="email">
                   </div>
                   <div class="form-group col-md-6">
                     <label for="inputPassword4">Contraseña</label>
-                    <input type="password" class="form-control" id="contraseña">
+                    <input type="password" class="form-control" id="contraseña" name="pass">
                   </div>
                 </div>
                 <div class="form-group">
                   <label for="inputAddress">Dirección de domicilio</label>
-                  <input type="text" class="form-control" id="direccion" placeholder="Colonia Buena Ventura, zona x, avenida xx">
+                  <input type="text" class="form-control" id="direccion" placeholder="Colonia Buena Ventura, zona x, avenida xx" name="direccion">
                 </div>
                 <div class="form-group">
                   <label for="inputAddress2">Municipio</label>
-                  <input type="text" class="form-control" id="municipio" placeholder="Municipality">
+                  <input type="text" class="form-control" id="municipio" placeholder="Municipality" name="municipio">
                 </div>
                 <div class="form-row">
                   <div class="form-group col-md-6">
                     <label for="inputCity">Ciudad</label>
-                    <input type="text" class="form-control" id="ciudad" placeholder="City">
+                    <input type="text" class="form-control" id="ciudad" placeholder="City" name="ciudad">
                   </div>
                 </div>
                 <button type="submit" class="btn btn-primary">Registrar</button>
+            </form>
         </div>    
     </body>
 </html>
