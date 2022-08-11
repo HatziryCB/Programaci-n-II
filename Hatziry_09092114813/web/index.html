@@ -38,27 +38,26 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Html.html to edit thi
         </nav>
         <div class="mx-auto" style="width: 600px;">
             <form action="ClienteController">
-                <h2 class="display-4">REGISTRO DE CLIENTE</h3>
-                <a href="ClienteController">Click</a>
+                <h2 class="display-4">REGISTRO DE CLIENTE</h2>
                 <div class="row">
                     <div class="col">
                         <label for="Nombres">Nombres</label>
-                      <input type="text" class="form-control" placeholder="First name" name="nombre">
+                      <input type="text" class="form-control" placeholder="First name" name="name">
                     </div>
                     <div class="col">
                         <label for="Apellidos">Apellidos</label>
-                      <input type="text" class="form-control" placeholder="Last name" name="apellido">
+                      <input type="text" class="form-control" placeholder="Last name" name="lastname">
                     </div>
                 </div>
                 <br>
                 <div class="row">
                     <div class="col">
                         <label for="codigo">Código Personal</label>
-                      <input type="text" class="form-control" placeholder="Access code" name="codigo">
+                      <input type="text" class="form-control" placeholder="Access code" name="code">
                     </div>
                     <div class="col">
                         <label for="telefono">Teléfono</label>
-                      <input type="text" class="form-control" placeholder="Phone number" name="telefono">
+                      <input type="text" class="form-control" placeholder="Phone number" name="phone">
                     </div>
                 </div>
                 <br>
@@ -74,7 +73,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Html.html to edit thi
                 </div>
                 <div class="form-group">
                   <label for="inputAddress">Dirección de domicilio</label>
-                  <input type="text" class="form-control" id="direccion" placeholder="Colonia XXXX, zona x, avenida xx" name="direccion">
+                  <input type="text" class="form-control" id="direccion" placeholder="Colonia XXXX, zona x, avenida xx" name="address">
                 </div>
                 <div class="form-group">
                   <label for="inputAddress2">Municipio</label>
@@ -83,10 +82,11 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Html.html to edit thi
                 <div class="form-row">
                   <div class="form-group col-md-6">
                     <label for="inputCity">Ciudad</label>
-                    <input type="text" class="form-control" id="ciudad" placeholder="City" name="ciudad">
+                    <input type="text" class="form-control" id="ciudad" placeholder="City" name="city">
                   </div>
                 </div>
                 <button type="submit" class="btn btn-primary">Registrar</button>
+                <button type="reset" class="btn btn-warning">Vaciar</button>
             </form>
         </div>    
     </body>

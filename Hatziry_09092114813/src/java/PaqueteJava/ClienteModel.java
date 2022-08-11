@@ -5,10 +5,9 @@
 package PaqueteJava;
 
 /**
- *
  * @author Chacón Berreondo
  */
-public class ClienteModell {
+public class ClienteModel {
     private String nombre;
     private String apellido;
     private int codigo;
@@ -18,9 +17,21 @@ public class ClienteModell {
     private String direccion;
     private String municipio;
     private String ciudad;
+
+    public ClienteModel(String nombre, String apellido, int codigo, int telefono, String correo, String direccion, String municipio, String ciudad) {
+        this.nombre = nombre;
+        this.apellido = apellido;
+        this.codigo = codigo;
+        this.telefono = telefono;
+        this.correo = correo;
+        this.direccion = direccion;
+        this.municipio = municipio;
+        this.ciudad = ciudad;
+    }
+
     
-    public ClienteModell(){
-        this.nombre="Nombre de ejemplo";
+    public ClienteModel() {
+        this.nombre = "Nombre de ejemplo";
     }
 
     public String getNombre() {
@@ -93,5 +104,5 @@ public class ClienteModell {
 
     public void setCiudad(String ciudad) {
         this.ciudad = ciudad;
-    }    
+    }
 }
