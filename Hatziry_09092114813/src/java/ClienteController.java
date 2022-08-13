@@ -83,7 +83,9 @@ public class ClienteController extends HttpServlet {
             out.println("</head>");
             out.println("<body>");
             out.println("<nav class=\"navbar navbar-expand-lg navbar-dark bg-dark\">\n"
-                    + "            <a class=\"navbar-brand\" href=\"https://www.acer.com/ac/en/US/content/home\">ACER</a>\n"
+                    + "            <a class=\"navbar-brand\" href=\"https://www.acer.com/ac/en/US/content/home\">"
+                    + "             <img src=\"https://upload.wikimedia.org/wikipedia/commons/thumb/0/00/Acer_2011.svg/800px-Acer_2011.svg.png?20220803104958\" width=\"90\" height=\"25\" class=\"d-inline-block align-top\" alt=\"\"/>"
+                    + "            </a>\n"
                     + "            <button class=\"navbar-toggler\" type=\"button\" data-toggle=\"collapse\" data-target=\"#navbarTogglerDemo02\" aria-controls=\"navbarTogglerDemo02\" aria-expanded=\"false\" aria-label=\"Toggle navigation\">\n"
                     + "              <span class=\"navbar-toggler-icon\"></span>\n"
                     + "            </button>\n"
