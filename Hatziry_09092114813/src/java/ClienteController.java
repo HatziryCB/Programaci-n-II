@@ -110,7 +110,8 @@ public class ClienteController extends HttpServlet {
                     + "        </nav>");
 
             out.println("<div class=\"mx-auto\" style=\"width: 600px;\">\n"
-                    + "<br><br><br><h4 class=\"display-4\">Datos de Usuario</h4>"
+                    + "<br><br><br>"
+                    + "<h4 class=\"display-4\">Datos de Usuario</h4>"
                     + "<br><br>"
                     + "<dl class=\"row\">\n"
                     + "  <dt class=\"col-sm-3\">Nombre </dt>\n"
@@ -155,7 +156,7 @@ public class ClienteController extends HttpServlet {
                     for(int i = 0;i<registroCliente.length; i++){
                         iterador=iterador+1;
                         if(!registroCliente[i].getNombre().isEmpty()){
-                           out.println("<tr>\n"
+                    out.println("<tr>\n"
                     + "      <th scope=\"row\">"+iterador+"</th>\n"
                     + "      <td>"+registroCliente[i].getNombre()+"</td>\n"
                     + "      <td>"+registroCliente[i].getApellido()+"</td>\n"

@@ -9,7 +9,9 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Html.html to edit thi
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
+        <script src="JavaScript.js\"></script>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct" crossorigin="anonymous"></script>
+        
     </head>
     <body>
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
@@ -39,63 +41,65 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Html.html to edit thi
             </div>
         </nav>
             <div class="text-center">
-                <img src="https://cdn-icons-png.flaticon.com/512/2521/2521826.png" class="rounded" width="100" alt="...">
+                <img src="https://cdn-icons-png.flaticon.com/512/2521/2521826.png" class="rounded mt-5" width="100" alt="...">
             </div>
             <div class="mx-auto" style="width: 600px;">
             <br>
-            <form action="ClienteController">
+            <form action="ClienteController" id="formularioCliente">
                 <div class="container" style="width: 700px">
-                    <img src="https://cdn-icons-png.flaticon.com/512/2521/2521826.png" class="rounded float-left" width="60">
                     <h2 class="display-4">  REGISTRO DE CLIENTE</h2>
-                </div><br><br>
-                <div class="row">
+                </div>
+                <div class="my-5">
+                <div class="row my-3">
                     <div class="col">
                         <label for="Nombres">Nombres</label>
-                      <input type="text" class="form-control" placeholder="First name" name="name">
+                        <input type="text" class="form-control" placeholder="First name" name="name" id="name">
                     </div>
                     <div class="col">
                         <label for="Apellidos">Apellidos</label>
-                      <input type="text" class="form-control" placeholder="Last name" name="lastname">
+                      <input type="text" class="form-control" placeholder="Last name" name="lastname" id="lastname">
                     </div>
                 </div>
-                <br>
-                <div class="row">
+                <div class="row my-3">
                     <div class="col">
                         <label for="codigo">Código Personal</label>
-                      <input type="text" class="form-control" placeholder="Access code" name="code">
+                        <input type="text" class="form-control" placeholder="Access code" name="code" id="code">
                     </div>
                     <div class="col">
                         <label for="telefono">Teléfono</label>
-                      <input type="text" class="form-control" placeholder="Phone number" name="phone">
+                        <input type="text" class="form-control" placeholder="Phone number" name="phone" id="phone">
                     </div>
                 </div>
-                <br>
-                <div class="form-row">
-                  <div class="form-group col-md-6">
-                    <label for="email">Correo electrónico</label>
-                    <input type="email" class="form-control" id="email" name="email">
-                  </div>
-                  <div class="form-group col-md-6">
-                    <label for="inputPassword4">Contraseña</label>
-                    <input type="password" class="form-control" id="contraseña" name="pass">
-                  </div>
+                <div class="form-row my-3">
+                    <div class="col-sm-8">
+                        <label for="email">Correo electrónico</label>
+                        <input type="email" class="form-control" name="email" id="email">
+                    </div>
+                    <div class="col-sm-4">
+                        <label for="pass">Contraseña</label>
+                        <input type="password" class="form-control" name="pass" id="pass">
+                    </div>
                 </div>
-                <div class="form-group">
-                  <label for="inputAddress">Dirección de domicilio</label>
-                  <input type="text" class="form-control" id="direccion" placeholder="Colonia XXXX, zona x, avenida xx" name="address">
+                <div class="my-3">
+                    <label for="inputAddress">Dirección de domicilio</label>
+                    <input type="text" class="form-control" placeholder="Colonia XXXX, zona x, avenida xx" name="address" id="address">
                 </div>
-                <div class="form-group">
-                  <label for="inputAddress2">Municipio</label>
-                  <input type="text" class="form-control" id="municipio" placeholder="Municipality" name="municipio">
+                <div class="row my-3">
+                    <div class="col">
+                      <label for="inputAddress2">Municipio</label>
+                      <input type="text" class="form-control" placeholder="Municipality" name="municipio" id="muni">
+                    </div>
+                    <div class="col">
+                      <div class="form-group col-md-6">
+                        <label for="inputCity">Ciudad</label>
+                        <input type="text" class="form-control" placeholder="City" name="city" id="city">
+                      </div>
+                    </div>
                 </div>
-                <div class="form-row">
-                  <div class="form-group col-md-6">
-                    <label for="inputCity">Ciudad</label>
-                    <input type="text" class="form-control" id="ciudad" placeholder="City" name="city">
-                  </div>
+                <button type="submit" class="btn btn-outline-primary">Registrar</button>
+                <button type="submit" value="Obtener datos" class="btn btn-outline-success" onclick="enviarDatos()">Enviar Datos</button>
+                <button type="reset" class="btn btn-outline-danger">Vaciar</button>
                 </div>
-                <button type="submit" class="btn btn-primary">Registrar</button>
-                <button type="reset" class="btn btn-warning">Vaciar</button>
             </form>
         </div>    
     </body>
