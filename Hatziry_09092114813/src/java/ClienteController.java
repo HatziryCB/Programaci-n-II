@@ -74,7 +74,7 @@ public class ClienteController extends HttpServlet {
             //mandamos a llamar el metodo que registra los datos en el vector, donde también el índice aumenta uno en uno
             registroCliente = registroArray.returnCliente();
             //Ahora vamos a llamar al método de la clase registroArray que nos retorna lo que se encuentra registrado en el vector
-            int iterador=0;
+            int iterador = 0;
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
@@ -83,9 +83,9 @@ public class ClienteController extends HttpServlet {
             out.println("</head>");
             out.println("<body>");
             out.println("<nav class=\"navbar navbar-expand-lg navbar-dark bg-dark\">\n"
-                    + "            <a class=\"navbar-brand\" href=\"https://www.acer.com/ac/en/US/content/home\">"
-                    + "             <img src=\"https://upload.wikimedia.org/wikipedia/commons/thumb/0/00/Acer_2011.svg/800px-Acer_2011.svg.png?20220803104958\" width=\"90\" height=\"25\" class=\"d-inline-block align-top\" alt=\"\"/>"
-                    + "            </a>\n"
+                    + "            <a class=\"navbar-brand\" href=\"#\">\n"
+                    + "                <img src=\"https://icon-library.com/images/home-icon-png/home-icon-png-28.jpg\" width=\"30\" height=\"30\" class=\"d-inline-block align-top\" alt=\"\">\n"
+                    + "                Home\n" + "</a>"
                     + "            <button class=\"navbar-toggler\" type=\"button\" data-toggle=\"collapse\" data-target=\"#navbarTogglerDemo02\" aria-controls=\"navbarTogglerDemo02\" aria-expanded=\"false\" aria-label=\"Toggle navigation\">\n"
                     + "              <span class=\"navbar-toggler-icon\"></span>\n"
                     + "            </button>\n"
@@ -109,8 +109,7 @@ public class ClienteController extends HttpServlet {
                     + "            </div>\n"
                     + "        </nav>");
 
-            out.println("<div class=\"mx-auto\" style=\"width: 600px;\">\n"
-                    + "<br><br><br>"
+            out.println("<div class=\"mx-auto my-5\" style=\"width: 600px;\">\n"
                     + "<h4 class=\"display-4\">Datos de Usuario</h4>"
                     + "<br><br>"
                     + "<dl class=\"row\">\n"
@@ -136,8 +135,8 @@ public class ClienteController extends HttpServlet {
                     + "<a class=\"btn btn-primary\" href=\"index.html\" role=\"button\">Registrar otro cliente</a>"
                     + "</div>");
 
-            out.println("<div class=\"mx-auto\" style=\"width:1200px;\">\n "
-                    + "<br><br><br><br><br><h2>Historial de Registros</h2>"
+            out.println("<div class=\"mx-auto my-5\" style=\"width:1200px;\">\n "
+                    + "<h2>Historial de Registros</h2>"
                     + "<table class=\"table table-hover\">\n"
                     + "  <thead>\n"
                     + "    <tr>\n"
@@ -151,28 +150,28 @@ public class ClienteController extends HttpServlet {
                     + "      <th scope=\"col\">Ciudad</th>\n"
                     + "    </tr>\n"
                     + "  </thead>\n");
-                    out.println("<tbody>");
-                    
-                    for(int i = 0;i<registroCliente.length; i++){
-                        iterador=iterador+1;
-                        if(!registroCliente[i].getNombre().isEmpty()){
+            out.println("<tbody>");
+
+            for (int i = 0; i < registroCliente.length; i++) {
+                iterador = iterador + 1;
+                if (!registroCliente[i].getNombre().isEmpty()) {
                     out.println("<tr>\n"
-                    + "      <th scope=\"row\">"+iterador+"</th>\n"
-                    + "      <td>"+registroCliente[i].getNombre()+"</td>\n"
-                    + "      <td>"+registroCliente[i].getApellido()+"</td>\n"
-                    + "      <td>"+registroCliente[i].getCodigo()+"</td>\n"
-                    + "      <td>"+registroCliente[i].getTelefono()+"</td>\n"
-                    + "      <td>"+registroCliente[i].getCorreo()+"</td>\n"
-                    + "      <td>"+registroCliente[i].getMunicipio()+"</td>\n"
-                    + "      <td>"+registroCliente[i].getCiudad()+"</td>\n");
+                            + "      <th scope=\"row\">" + iterador + "</th>\n"
+                            + "      <td>" + registroCliente[i].getNombre() + "</td>\n"
+                            + "      <td>" + registroCliente[i].getApellido() + "</td>\n"
+                            + "      <td>" + registroCliente[i].getCodigo() + "</td>\n"
+                            + "      <td>" + registroCliente[i].getTelefono() + "</td>\n"
+                            + "      <td>" + registroCliente[i].getCorreo() + "</td>\n"
+                            + "      <td>" + registroCliente[i].getMunicipio() + "</td>\n"
+                            + "      <td>" + registroCliente[i].getCiudad() + "</td>\n");
                     out.println("<td>"
-                               + "<button type=\"button\" class=\"btn btn-warning\"></i>Editar</button> "
-                               + "<button type=\"button\" class=\"btn btn-danger\">Eliminar</button>"
-                               + "</td>" + "    </tr>\n");
-                        }
-                    }
-                    out.println("  </tbody>");
-                    out.println("</table>");
+                            + "<button type=\"button\" class=\"btn btn-warning\"></i>Editar</button> "
+                            + "<button type=\"button\" class=\"btn btn-danger\">Eliminar</button>"
+                            + "</td>" + "    </tr>\n");
+                }
+            }
+            out.println("  </tbody>");
+            out.println("</table>");
             out.println("</body>");
             out.println("</html>");
         }
