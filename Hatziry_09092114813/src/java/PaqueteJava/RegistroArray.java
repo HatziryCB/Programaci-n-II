@@ -11,10 +11,12 @@ package PaqueteJava;
 public class RegistroArray {
    ClienteModel [] vectorCliente;
    int indice;
+   int btn;
    
    public RegistroArray(){
        this.vectorCliente = new ClienteModel[50];
        this.indice = 0;
+       this.btn =0;
    }
    
    public void guardarRegistro(ClienteModel cliente){
@@ -24,5 +26,15 @@ public class RegistroArray {
    
    public ClienteModel[] returnCliente(){
        return this.vectorCliente;
+   }
+   public void delete (String position){
+       int pos = Integer.parseInt(position);
+       this.vectorCliente[pos]= null;
+       
+       for(int i = pos; i< indice -1; i++){
+           this.vectorCliente[i-1] = this.vectorCliente[i+1];
+       }
+       this.vectorCliente[indice-1]= null;
+       indice --;
    }
 }

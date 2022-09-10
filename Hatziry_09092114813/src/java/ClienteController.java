@@ -71,109 +71,30 @@ public class ClienteController extends HttpServlet {
             }
 
             registroArray.guardarRegistro(cliente);
-            //mandamos a llamar el metodo que registra los datos en el vector, donde también el índice aumenta uno en uno
             registroCliente = registroArray.returnCliente();
-            //Ahora vamos a llamar al método de la clase registroArray que nos retorna lo que se encuentra registrado en el vector
-            int iterador = 0;
-            out.println("<!DOCTYPE html>");
-            out.println("<html>");
-            out.println("<head>");
-            out.println("<script src=\"https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js\" integrity=\"sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct\" crossorigin=\"anonymous\"></script>"
-                    + "<link rel=\"stylesheet\" href=\"https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css\" integrity=\"sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N\" crossorigin=\"anonymous\">\n");
-            out.println("</head>");
-            out.println("<body>");
-            out.println("<nav class=\"navbar navbar-expand-lg navbar-dark bg-dark\">\n"
-                    + "            <a class=\"navbar-brand\" href=\"#\">\n"
-                    + "                <img src=\"https://icon-library.com/images/home-icon-png/home-icon-png-28.jpg\" width=\"30\" height=\"30\" class=\"d-inline-block align-top\" alt=\"\">\n"
-                    + "                Home\n" + "</a>"
-                    + "            <button class=\"navbar-toggler\" type=\"button\" data-toggle=\"collapse\" data-target=\"#navbarTogglerDemo02\" aria-controls=\"navbarTogglerDemo02\" aria-expanded=\"false\" aria-label=\"Toggle navigation\">\n"
-                    + "              <span class=\"navbar-toggler-icon\"></span>\n"
-                    + "            </button>\n"
-                    + "\n"
-                    + "            <div class=\"collapse navbar-collapse\" id=\"navbarTogglerDemo02\">\n"
-                    + "              <ul class=\"navbar-nav mr-auto mt-2 mt-lg-0\">\n"
-                    + "                <li class=\"nav-item active\">\n"
-                    + "                  <a class=\"nav-link\" href=\"index.html\">Registrarse <span class=\"sr-only\">(current)</span></a>\n"
-                    + "                </li>\n"
-                    + "                <li class=\"nav-item active\">\n"
-                    + "                  <a class=\"nav-link\" href=\"https://store.acer.com/en-us/?internal_source=us.acer.com&internal_medium=referral&internal_campaign=Ongoing&internal_content=Nav\">Tienda</a>\n"
-                    + "                </li>\n"
-                    + "                <li class=\"nav-item active\">\n"
-                    + "                  <a class=\"nav-link\" href=\"https://www.acer.com/ac/en/US/content/service-contact\">Contacto</a>\n"
-                    + "                </li>\n"
-                    + "              </ul>\n"
-                    + "              <form class=\"form-inline my-2 my-lg-0\">\n"
-                    + "                <input class=\"form-control mr-sm-2\" type=\"search\" placeholder=\"Search\">\n"
-                    + "                <button class=\"btn btn-outline-success my-2 my-sm-0\" type=\"submit\">Buscar</button>\n"
-                    + "              </form>\n"
-                    + "            </div>\n"
-                    + "        </nav>");
-
-            out.println("<div class=\"mx-auto my-5\" style=\"width: 600px;\">\n"
-                    + "<h4 class=\"display-4\">Datos de Usuario</h4>"
-                    + "<br><br>"
-                    + "<dl class=\"row\">\n"
-                    + "  <dt class=\"col-sm-3\">Nombre </dt>\n"
-                    + "  <dd class=\"col-sm-9\">" + cliente.getNombre() + " " + cliente.getApellido() + "</dd>\n"
-                    + "\n"
-                    + "  <dt class=\"col-sm-3\">Código</dt>\n"
-                    + "  <dd class=\"col-sm-9\">\n"
-                    + "    <p>" + cliente.getCodigo() + "</p>\n"
-                    + "  </dd>\n"
-                    + "\n"
-                    + "  <dt class=\"col-sm-3\">Teléfono</dt>\n"
-                    + "  <dd class=\"col-sm-9\">" + cliente.getTelefono() + "</dd>\n"
-                    + "\n"
-                    + "  <dt class=\"col-sm-3 text-truncate\">Correo</dt>\n"
-                    + "  <dd class=\"col-sm-9\">" + cliente.getCorreo() + "</dd>\n"
-                    + "\n"
-                    + "<dt class=\"col-sm-3\">Domicilio</dt>\n"
-                    + "  <dd class=\"col-sm-9\">" + cliente.getDirección() + "</dd>\n"
-                    + "<dt class=\"col-sm-3\">Locación</dt>\n"
-                    + "  <dd class=\"col-sm-9\">" + cliente.getMunicipio() + " , " + cliente.getCiudad() + "</dd>\n"
-                    + "</dl>"
-                    + "<a class=\"btn btn-primary\" href=\"index.html\" role=\"button\">Registrar otro cliente</a>"
-                    + "</div>");
-
-            out.println("<div class=\"mx-auto my-5\" style=\"width:1200px;\">\n "
-                    + "<h2>Historial de Registros</h2>"
-                    + "<table class=\"table table-hover\">\n"
-                    + "  <thead>\n"
-                    + "    <tr>\n"
-                    + "      <th scope=\"col\">No.</th>\n"
-                    + "      <th scope=\"col\">Nombres</th>\n"
-                    + "      <th scope=\"col\">Apellidos</th>\n"
-                    + "      <th scope=\"col\">Código</th>\n"
-                    + "      <th scope=\"col\">Teléfono</th>\n"
-                    + "      <th scope=\"col\">Correo</th>\n"
-                    + "      <th scope=\"col\">Municipio</th>\n"
-                    + "      <th scope=\"col\">Ciudad</th>\n"
-                    + "    </tr>\n"
-                    + "  </thead>\n");
-            out.println("<tbody>");
-
+            
+            if(request.getParameter("position")!= null){
+                String position = request.getParameter("position");
+                registroArray.delete(position);
+            }
+            
             for (int i = 0; i < registroCliente.length; i++) {
-                iterador = iterador + 1;
                 if (!registroCliente[i].getNombre().isEmpty()) {
-                    out.println("<tr>\n"
-                            + "      <th scope=\"row\">" + iterador + "</th>\n"
-                            + "      <td>" + registroCliente[i].getNombre() + "</td>\n"
-                            + "      <td>" + registroCliente[i].getApellido() + "</td>\n"
-                            + "      <td>" + registroCliente[i].getCodigo() + "</td>\n"
-                            + "      <td>" + registroCliente[i].getTelefono() + "</td>\n"
-                            + "      <td>" + registroCliente[i].getCorreo() + "</td>\n"
-                            + "      <td>" + registroCliente[i].getMunicipio() + "</td>\n"
-                            + "      <td>" + registroCliente[i].getCiudad() + "</td>\n");
+                    
+                    out.println("<tr><td>" + registroCliente[i].getCodigo() + "</td>");
+                    out.println("<td>" + registroCliente[i].getNombre() + "</td>");
+                    out.println("<td>" + registroCliente[i].getApellido() + "</td>");
+                    out.println("<td>" + registroCliente[i].getTelefono() + "</td>");
+                    out.println("<td>" + registroCliente[i].getCorreo() + "</td>");
+                    out.println("<td>" + registroCliente[i].getCiudad() + "</td>");
                     out.println("<td>"
-                            + "<button type=\"button\" class=\"btn btn-warning\"></i>Editar</button> "
-                            + "<button type=\"button\" class=\"btn btn-danger\">Eliminar</button>"
+                            + "<button \"<buttontype=\"button\" class=\"btn btn-outline-warning btn-sm \" id=\"btn1\" onclick=\"eliminar()\" >Delete 1</button> "
+                            + "<button type=\"button\" class=\"btn btn-outline-danger btn-sm\" id=\"btn2\" onclick=\"eliminar2("+ i +")\">Delete 2</button>"
                             + "</td>" + "    </tr>\n");
                 }
             }
-            out.println("  </tbody>");
-            out.println("</table>");
-            out.println("</body>");
-            out.println("</html>");
+            
+            
         }
     }
 
