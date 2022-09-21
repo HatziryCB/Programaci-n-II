@@ -75,16 +75,43 @@ function eliminar2(iterador) {
     XHR.send(data);
 }
 
-function cleanForm(){
-    document.getElementById("code").value='';
-    document.getElementById("name").value='';
-    document.getElementById("lastname").value='';
-    document.getElementById("email").value='';
-    document.getElementById("pass").value='';
-    document.getElementById("phone").value='';
-    document.getElementById("address").value='';
-    document.getElementById("muni").value='';
-    document.getElementById("city").value='';
+function cleanForm() {
+    document.getElementById("code").value = '';
+    document.getElementById("name").value = '';
+    document.getElementById("lastname").value = '';
+    document.getElementById("email").value = '';
+    document.getElementById("pass").value = '';
+    document.getElementById("phone").value = '';
+    document.getElementById("address").value = '';
+    document.getElementById("muni").value = '';
+    document.getElementById("city").value = '';
+}
+
+function eliminar3(codigo) {
+    const XHR = new XMLHttpRequest();
+    var formData = new URLSearchParams(new FormData());
+
+    // Define what happens in case of error
+    XHR.addEventListener('error', (event) => {
+        console.log('Oops! Something went wrong.');
+    });
+
+    // Set up our request
+    XHR.open('POST', 'ClienteController', true);
+    XHR.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+
+    XHR.onload = () => {
+        if (XHR.readyState === XHR.DONE && XHR.status === 200) {
+            console.log("response => " + XHR.response);
+            deleted();
+            setTimeout(function () {
+                window.location.reload()
+            }, 2000);
+        }
+    };
+    formData.append('code', codigo);
+    formData.append('control', 'ELIMINAR');
+    XHR.send(formData);
 }
 
 function success() {

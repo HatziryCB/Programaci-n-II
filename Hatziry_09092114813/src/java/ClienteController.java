@@ -24,7 +24,7 @@ public class ClienteController extends HttpServlet {
     ClienteModel cliente;
     RegistroArray registroArray;
     ClienteModel[] registroCliente; //Creamos de nuevo un objeto donde se encuentran todas la variables del cliente, su función es almacenar lo que se registre en el primer vector
-
+    StringBuffer objRespuesta = new StringBuffer();
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
      * methods.
@@ -42,7 +42,11 @@ public class ClienteController extends HttpServlet {
             le asignamos a este objeto todos los datos que han sido ingresados en el formulario en el archivo index.html
             Esto debe hacerse en orden y con los nombres que le asignamos a los input del formulario.
              */
-            cliente = new ClienteModel(
+            registroArray = new RegistroArray();
+            String control = request.getParameter("control");
+            
+            if(control.toUpperCase().equals("GUARDAR")){
+                cliente = new ClienteModel(
                     request.getParameter("name"),
                     request.getParameter("lastname"),
                     Integer.parseInt(request.getParameter("code")),
@@ -50,42 +54,23 @@ public class ClienteController extends HttpServlet {
                     request.getParameter("email"),
                     request.getParameter("address"),
                     request.getParameter("municipio"),
-                    request.getParameter("city")
-            );
-
-            /*
-            Con este método al previamente haber creado el objeto de la clase, al iniciarlo dentro del try y asignarle los datos 
-            obtenidos en el formulario con los metodos set, de igual manera se cambian los valores de enteros
-            a string con Integer.parseInt para evitar problemas a futuro.
+                    request.getParameter("city"));
+                    registroArray.guardarEnBD(cliente);//Almacenar en BD
+            }else if(control.toUpperCase().equals("ELIMINAR")){
+                int codigoEliminar = Integer.parseInt(request.getParameter("code"));
+                registroArray.eliminarCliente(codigoEliminar);
+            }                
             
-            cliente.setNombre(request.getParameter("nombre"));
-            cliente.setApellido(request.getParameter("apellido"));
-            cliente.setCodigo(Integer.parseInt(request.getParameter("codigo")));
-            cliente.setTelefono(Integer.parseInt(request.getParameter("telefono")));
-            cliente.setCorreo(request.getParameter("email"));
-            cliente.setDirección(request.getParameter("direccion"));
-            cliente.setMunicipio(request.getParameter("municipio"));
-            cliente.setCiudad(request.getParameter("ciudad"));
-             */
-            if (registroArray == null) {
-                registroArray = new RegistroArray();
-            }
-
-            registroArray.guardarRegistro(cliente); 
-            
-            if(registroArray.guardarEnBD(cliente)){
-                out.println(1);
-            }else{
-                out.println(0);
-            }
-            registroCliente = registroArray.returnCliente();
+            //registroCliente = registroArray.returnCliente();
+            registroArray.getClientes2(objRespuesta);
+            out.write(objRespuesta.toString());
             
             if(request.getParameter("position")!= null){
                 String position = request.getParameter("position");
                 registroArray.delete(position);
             }
             
-            for (int i = 0; i < registroCliente.length; i++) {
+          /*for (int i = 0; i < registroCliente.length; i++) {
                 if (!registroCliente[i].getNombre().isEmpty()) {
                     
                     out.println("<tr><td>" + registroCliente[i].getCodigo() + "</td>");
@@ -99,7 +84,7 @@ public class ClienteController extends HttpServlet {
                             + "<button type=\"button\" class=\"btn btn-outline-danger btn-sm\" id=\"btn2\" onclick=\"eliminar2("+ i +")\">Delete 2</button>"
                             + "</td>" + "    </tr>\n");
                 }
-            } 
+            }*/ 
         }
     }
 
