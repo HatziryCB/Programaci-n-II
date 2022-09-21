@@ -5,6 +5,7 @@
 
 import PaqueteJava.ClienteModel;
 import PaqueteJava.RegistroArray;
+import PaqueteJava.ConexionBaseDeDatos;
 import java.io.IOException;
 import java.io.PrintWriter;
 import jakarta.servlet.ServletException;
@@ -70,7 +71,13 @@ public class ClienteController extends HttpServlet {
                 registroArray = new RegistroArray();
             }
 
-            registroArray.guardarRegistro(cliente);
+            registroArray.guardarRegistro(cliente); 
+            
+            if(registroArray.guardarEnBD(cliente)){
+                out.println(1);
+            }else{
+                out.println(0);
+            }
             registroCliente = registroArray.returnCliente();
             
             if(request.getParameter("position")!= null){
@@ -92,9 +99,7 @@ public class ClienteController extends HttpServlet {
                             + "<button type=\"button\" class=\"btn btn-outline-danger btn-sm\" id=\"btn2\" onclick=\"eliminar2("+ i +")\">Delete 2</button>"
                             + "</td>" + "    </tr>\n");
                 }
-            }
-            
-            
+            } 
         }
     }
 

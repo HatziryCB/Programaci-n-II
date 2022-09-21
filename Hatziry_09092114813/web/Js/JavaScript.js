@@ -43,6 +43,7 @@ function enviarDatos() {
             console.log("Respuesta => " + XHR.response);
             document.getElementById('bodyTable').innerHTML = XHR.response;
             success();
+            cleanForm();
         }
     };
     XHR.send(formData);
@@ -72,6 +73,18 @@ function eliminar2(iterador) {
         }
     };
     XHR.send(data);
+}
+
+function cleanForm(){
+    document.getElementById("code").value='';
+    document.getElementById("name").value='';
+    document.getElementById("lastname").value='';
+    document.getElementById("email").value='';
+    document.getElementById("pass").value='';
+    document.getElementById("phone").value='';
+    document.getElementById("address").value='';
+    document.getElementById("muni").value='';
+    document.getElementById("city").value='';
 }
 
 function success() {
