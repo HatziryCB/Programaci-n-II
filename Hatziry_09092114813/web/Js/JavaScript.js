@@ -4,30 +4,6 @@ window.onload = function () {
     //Ejecución de recarga de página 
 };
 
-/*function obteniendoElementosDom(){
- let cliente = new Object(); //Creamos un objeto
- //Asignamos los valores de los inputs por sus id a variables creadas
- let nombre=document.getElementById("name");
- let apellido=document.getElementById("lastname");
- let codigo=document.getElementById("code");
- let telefono=document.getElementById("phone");
- let correo=document.getElementById("email");
- let direccion=document.getElementById("address");
- let municipio=document.getElementById("muni");
- let ciudad=document.getElementById("city");
- //Asignamos los datos de los inputs al objeto que creamos anteriormente
- cliente.nombre=name.value;
- cliente.apellido=lastname.value;
- cliente.codigo=code.value;
- cliente.telefono=phone.value;
- cliente.correo=email.value;
- cliente.direccion=address.value;
- cliente.municipio=muni.value;
- cliente.ciudad=city.value;
- //Mostramos en la consola o terminal el objeto que creamos
- console.log(cliente); 
- }*/
-
 function enviarDatos() {
     const XHR = new XMLHttpRequest();
     var formData = new URLSearchParams(new FormData(document.getElementById('form'))).toString();
@@ -105,11 +81,11 @@ function eliminar3(codigo) {
             console.log("response => " + XHR.response);
             deleted();
             setTimeout(function () {
-                window.location.reload()
+                window.location.reload();
             }, 2000);
         }
     };
-    formData.append('code', codigo);
+    formData.append('codigo_cliente', codigo);
     formData.append('control', 'ELIMINAR');
     XHR.send(formData);
 }

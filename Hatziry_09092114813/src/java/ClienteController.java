@@ -24,7 +24,8 @@ public class ClienteController extends HttpServlet {
     ClienteModel cliente;
     RegistroArray registroArray;
     ClienteModel[] registroCliente; //Creamos de nuevo un objeto donde se encuentran todas la variables del cliente, su función es almacenar lo que se registre en el primer vector
-    StringBuffer objRespuesta = new StringBuffer();
+    StringBuffer objetoRespuesta = new StringBuffer();
+
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
      * methods.
@@ -37,54 +38,34 @@ public class ClienteController extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-        try ( PrintWriter out = response.getWriter()) {
+
+        try ( PrintWriter respuesta = response.getWriter()) {
             /* Inicializamos el objeto de la clase alumnos que posee todas los datos del cliente y
             le asignamos a este objeto todos los datos que han sido ingresados en el formulario en el archivo index.html
             Esto debe hacerse en orden y con los nombres que le asignamos a los input del formulario.
              */
             registroArray = new RegistroArray();
             String control = request.getParameter("control");
-            
-            if(control.toUpperCase().equals("GUARDAR")){
+
+            if (control.toUpperCase().equals("GUARDAR")) {
                 cliente = new ClienteModel(
-                    request.getParameter("name"),
-                    request.getParameter("lastname"),
-                    Integer.parseInt(request.getParameter("code")),
-                    Integer.parseInt(request.getParameter("phone")),
-                    request.getParameter("email"),
-                    request.getParameter("address"),
-                    request.getParameter("municipio"),
-                    request.getParameter("city"));
-                    registroArray.guardarEnBD(cliente);//Almacenar en BD
-            }else if(control.toUpperCase().equals("ELIMINAR")){
-                int codigoEliminar = Integer.parseInt(request.getParameter("code"));
+                        request.getParameter("name"),//Nombre de los ID que colocamos a cada input en index
+                        request.getParameter("lastname"),
+                        Integer.parseInt(request.getParameter("code")),
+                        Integer.parseInt(request.getParameter("phone")),
+                        request.getParameter("email"),
+                        request.getParameter("address"),
+                        request.getParameter("municipio"),
+                        request.getParameter("city"));
+                registroArray.guardarClienteBD(cliente);//Almacenar en BD
+
+            } else if (control.toUpperCase().equals("ELIMINAR")) {
+                int codigoEliminar = Integer.parseInt(request.getParameter("codigo_cliente"));//Nombre de encabezado de tabla Mysql con not null
                 registroArray.eliminarCliente(codigoEliminar);
-            }                
-            
-            //registroCliente = registroArray.returnCliente();
-            registroArray.getClientes2(objRespuesta);
-            out.write(objRespuesta.toString());
-            
-            if(request.getParameter("position")!= null){
-                String position = request.getParameter("position");
-                registroArray.delete(position);
             }
-            
-          /*for (int i = 0; i < registroCliente.length; i++) {
-                if (!registroCliente[i].getNombre().isEmpty()) {
-                    
-                    out.println("<tr><td>" + registroCliente[i].getCodigo() + "</td>");
-                    out.println("<td>" + registroCliente[i].getNombre() + "</td>");
-                    out.println("<td>" + registroCliente[i].getApellido() + "</td>");
-                    out.println("<td>" + registroCliente[i].getTelefono() + "</td>");
-                    out.println("<td>" + registroCliente[i].getCorreo() + "</td>");
-                    out.println("<td>" + registroCliente[i].getCiudad() + "</td>");
-                    out.println("<td>"
-                            + "<button \"<buttontype=\"button\" class=\"btn btn-outline-warning btn-sm \" id=\"btn1\" onclick=\"eliminar()\" >Delete 1</button> "
-                            + "<button type=\"button\" class=\"btn btn-outline-danger btn-sm\" id=\"btn2\" onclick=\"eliminar2("+ i +")\">Delete 2</button>"
-                            + "</td>" + "    </tr>\n");
-                }
-            }*/ 
+
+            registroArray.getClientes2(objetoRespuesta);//consultar registro cliente en el BD
+            respuesta.write(objetoRespuesta.toString());
         }
     }
 

@@ -54,8 +54,8 @@ public class RegistroArray {
         conexion = conectorBD.conectar();
     }
 
-    public String guardarEnBD(ClienteModel cliente) {
-        String sql = "INSERT INTO universidad.cliente(codigo, nombre, apellido, telefono, correo, ciudad, genero_idgenero)";
+    public String guardarClienteBD(ClienteModel cliente) {
+        String sql = "INSERT INTO universidad.cliente(codigo, nombre, apellido, telefono, correo, ciudad)";
         sql += "VALUES (?,?,?,?,?,?,?)";
 
         try {
@@ -80,29 +80,30 @@ public class RegistroArray {
         }
     }
 
-    public void getClientes2(StringBuffer out) {
+    public void getClientes2(StringBuffer respuesta) {
         String sql = "select * from universidad.cliente";
         try {
             iniciarConexion();
+            respuesta.setLength(0);
             statement = conexion.prepareStatement(sql);
             result = statement.executeQuery();
             if (result != null) {
                 while (result.next()) {
-                    out.append("<tr>");
-                    out.append("<td >").append(result.getString("codigo")).append("</td>");
-                    out.append("<td >").append(result.getString("nombre")).append("</td>");
-                    out.append("<td >").append(result.getString("apellido")).append("</td>");
-                    out.append("<td >").append(result.getString("telefono")).append("</td>");
-                    out.append("<td >").append(result.getString("correo")).append("</td>");
-                    out.append("<td >").append(result.getString("ciudad")).append("</td>");
-                    out.append("<td id=\"").append(result.getString("numero_carne"))
-                            .append("\"  onclick=\"edit(this.id);\">")
+                    respuesta.append("<tr>");
+                    respuesta.append("<td >").append(result.getString("codigo")).append("</td>");//nombre de los encabezados en las columnas del query en mySQL Workbench
+                    respuesta.append("<td >").append(result.getString("nombre")).append("</td>");
+                    respuesta.append("<td >").append(result.getString("apellido")).append("</td>");
+                    respuesta.append("<td >").append(result.getString("telefono")).append("</td>");
+                    respuesta.append("<td >").append(result.getString("correo")).append("</td>");
+                    respuesta.append("<td >").append(result.getString("ciudad")).append("</td>");
+                    respuesta.append("<td id=\"").append(result.getString("codigo"))
+                            .append("\"  onclick=\"eliminarCliente(this.id);\">")
                             .append(" <a class=\"btn btn-warning\"'><i class=\"fas fa-edit\"></i>  </a>"
                                     + " <a class=\"btn btn-danger\"'> <i class=\"fas fa-trash-alt\"></i> </a>"
                                     + " <td></tr>");
                 }
             } else {
-                out.append("error al consultar");
+                respuesta.append("error al consultar");
             }
         } catch (SQLException ex) {
             ex.printStackTrace();
