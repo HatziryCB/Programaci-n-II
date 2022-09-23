@@ -98,7 +98,7 @@ public class RegistroArray {
                     respuesta.append("<td >").append(result.getString("correo")).append("</td>");
                     respuesta.append("<td >").append(result.getString("ciudad")).append("</td>");
                     respuesta.append("<td id=\"").append(result.getString("codigo"))
-                            .append("\"  onclick=\"eliminarCliente(this.id);\">")
+                            .append("\"  onclick=\"eliminar3(this.id);\">")
                             .append(" <a class=\"btn btn-warning\"'><i class=\"bi bi-vector-pen\"></i>  </a>"
                                     + " <a class=\"btn btn-danger\"'> <i class=\"bi bi-trash3\"></i> </a>"
                                     + " <td></tr>");
