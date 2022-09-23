@@ -55,15 +55,15 @@ public class RegistroArray {
     }
 
     public String guardarClienteBD(ClienteModel cliente) {
-        String sql = "INSERT INTO universidad.cliente(codigo, nombre, apellido, telefono, correo, ciudad)";
-        sql += "VALUES (?,?,?,?,?,?,?)";
+        String sql = "INSERT INTO universidad.cliente(nombre, apellido, codigo, telefono, correo, ciudad)";
+        sql += "VALUES (?,?,?,?,?,?)";
 
         try {
             iniciarConexion();
             statement = conexion.prepareStatement(sql);
-            statement.setInt(1, cliente.getCodigo());
-            statement.setString(2, cliente.getNombre());
-            statement.setString(3, cliente.getApellido());
+            statement.setString(1, cliente.getNombre());
+            statement.setString(2, cliente.getApellido());
+            statement.setInt(3, cliente.getCodigo());
             statement.setInt(4, cliente.getTelefono());
             statement.setString(5, cliente.getCorreo());
             statement.setString(6, cliente.getCiudad());
@@ -90,9 +90,10 @@ public class RegistroArray {
             if (result != null) {
                 while (result.next()) {
                     respuesta.append("<tr>");
-                    respuesta.append("<td >").append(result.getString("codigo")).append("</td>");//nombre de los encabezados en las columnas del query en mySQL Workbench
+                    //nombre de los encabezados en las columnas del query en mySQL Workbench
                     respuesta.append("<td >").append(result.getString("nombre")).append("</td>");
                     respuesta.append("<td >").append(result.getString("apellido")).append("</td>");
+                    respuesta.append("<td >").append(result.getString("codigo")).append("</td>");
                     respuesta.append("<td >").append(result.getString("telefono")).append("</td>");
                     respuesta.append("<td >").append(result.getString("correo")).append("</td>");
                     respuesta.append("<td >").append(result.getString("ciudad")).append("</td>");
