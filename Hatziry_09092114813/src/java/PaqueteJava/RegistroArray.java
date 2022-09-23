@@ -90,7 +90,7 @@ public class RegistroArray {
             if (result != null) {
                 while (result.next()) {
                     respuesta.append("<tr>");
-                    //nombre de los encabezados en las columnas del query en mySQL Workbench
+                    //nombre de los encabezados en las columnas del query en mySQL Workbench, deben estar todos en el mismo orden
                     respuesta.append("<td >").append(result.getString("nombre")).append("</td>");
                     respuesta.append("<td >").append(result.getString("apellido")).append("</td>");
                     respuesta.append("<td >").append(result.getString("codigo")).append("</td>");
@@ -99,8 +99,8 @@ public class RegistroArray {
                     respuesta.append("<td >").append(result.getString("ciudad")).append("</td>");
                     respuesta.append("<td id=\"").append(result.getString("codigo"))
                             .append("\"  onclick=\"eliminarCliente(this.id);\">")
-                            .append(" <a class=\"btn btn-warning\"'><i class=\"fas fa-edit\"></i>  </a>"
-                                    + " <a class=\"btn btn-danger\"'> <i class=\"fas fa-trash-alt\"></i> </a>"
+                            .append(" <a class=\"btn btn-warning\"'><i class=\"bi bi-vector-pen\"></i>  </a>"
+                                    + " <a class=\"btn btn-danger\"'> <i class=\"bi bi-trash3\"></i> </a>"
                                     + " <td></tr>");
                 }
             } else {
