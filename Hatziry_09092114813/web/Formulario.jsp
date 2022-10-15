@@ -1,3 +1,10 @@
+<%-- 
+    Document   : Formulario
+    Created on : 15/10/2022, 12:42:09 AM
+    Author     : Hatziry Chacón
+--%>
+
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <!--
 Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
@@ -21,7 +28,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Html.html to edit thi
             }
             body{
                 min-height: 100vh;
-                background-image: url(https://w.wallhaven.cc/full/j3/wallhaven-j3m2ww.jpg);
+                background-image: url(https://www.xtrafondos.com/wallpapers/playstation-abstracto-8359.jpg);
                 background-size: 100%;
                 background-position: center center;
                 background-attachment: fixed;
@@ -54,7 +61,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Html.html to edit thi
                 </ul>
                 <form class="form-inline my-2 my-lg-0">
                     <input class="form-control mr-sm-2" type="search" placeholder="Search">
-                    <button class="btn btn-outline-warning my-2 my-sm-0" type="submit">Buscar</button>
+                    <button class="btn btn-outline-info my-2 my-sm-0" type="submit">Buscar</button>
                 </form>
             </div>
         </nav>
